@@ -1,0 +1,81 @@
+# DeepGuardAI - Deepfake Detection System
+
+A web-based deepfake detection system that uses machine learning to analyze images for signs of manipulation.
+
+## Project Structure
+
+```
+deepguard_backend/
+├── deepguard_backend/     # Main project settings
+├── detector/              # Deepfake detection app
+│   ├── models.py         # Database models
+│   ├── views.py          # API endpoints
+│   └── urls.py           # URL routing
+├── media/                 # Uploaded files
+├── static/               # Static files
+└── requirements.txt      # Project dependencies
+```
+
+## Setup Instructions
+
+1. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Run migrations:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+4. Create a superuser (optional):
+```bash
+python manage.py createsuperuser
+```
+
+5. Run the development server:
+```bash
+python manage.py runserver
+```
+
+## API Endpoints
+
+- `POST /api/analyze/` - Upload and analyze an image
+  - Request: Form data with 'image' field
+  - Response: Analysis results in JSON format
+
+- `GET /api/result/<id>/` - Get analysis result by ID
+  - Response: Analysis results in JSON format
+
+## Frontend Integration
+
+The frontend is located in the `Mini Project` directory. To use it with the backend:
+
+1. Make sure the Django server is running on `http://localhost:8000`
+2. Open the frontend HTML files in a web browser
+3. The frontend will automatically connect to the backend API
+
+## Model Integration
+
+To integrate your deepfake detection model:
+
+1. Replace the `predict_deepfake()` function in `detector/views.py` with your model's prediction code
+2. Make sure your model is compatible with the expected input/output format
+3. Update the requirements.txt file with any additional dependencies your model needs
+
+## Development
+
+- Backend API runs on `http://localhost:8000`
+- Admin interface available at `http://localhost:8000/admin`
+- API documentation available at `http://localhost:8000/api/docs`
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
