@@ -60,7 +60,7 @@ def analyze_media(request):
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         filename = f'upload_{timestamp}_{media_file.name}'
         
-        # Create the full file path
+        # Create the full file path filename
         upload_dir = os.path.join(settings.MEDIA_ROOT, 'uploads')
         os.makedirs(upload_dir, exist_ok=True)
         filepath = os.path.join(upload_dir, filename)
