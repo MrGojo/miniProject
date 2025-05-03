@@ -1,5 +1,18 @@
+<<<<<<< HEAD
 Django>=5.0.0
 Pillow>=10.0.0
 numpy>=1.24.0
 torch>=2.0.0
 torchvision>=0.15.0 
+=======
+torch>=2.0.0
+torchvision>=0.15.0
+datasets>=2.12.0
+transformers>=4.30.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+tqdm>=4.65.0
+Pillow>=9.5.0
+matplotlib>=3.7.0 
+>>>>>>> 121b4dace8f3a3dfac0ddcf8b5d01ab725b33cb4
