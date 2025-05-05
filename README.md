@@ -27,10 +27,10 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 2. Install dependencies:
 =======
-# Deepfake Detection using WildDeepfake Dataset
+# Deepfake Detection using kaggle Dataset
 
-This project implements a deepfake detection model using the WildDeepfake dataset. The model is based on a ResNet50 architecture fine-tuned for binary classification (real vs. fake images).
-
+This project implements a deepfake detection model using the kaggle 140k real and fake image dataset. The model is is based on Custom Cnn architecture fine-tuned for binary classification (real vs. fake images).
+https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces/data
 ## Setup
 
 1. Install the required dependencies:
@@ -91,44 +91,46 @@ To integrate your deepfake detection model:
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
 =======
-2. The project structure:
-- `model.py`: Contains the model architecture
-- `data_utils.py`: Handles dataset loading and preprocessing
-- `train.py`: Main training script
-- `requirements.txt`: Project dependencies
+# 🎭 Deepfake Detection using Convolutional Neural Networks (CNN)
+
+This project uses a CNN-based model to detect deepfake content by analyzing visual artifacts in images or video frames. The model processes RGB images resized to 256x256 and outputs a binary prediction — **real (0)** or **deepfake (1)**.
+
+---
 
 ## Training the Model
 
-To train the model, simply run:
-```bash
-python train.py
-```
+To train the model:
 
-The script will:
-- Load and preprocess the WildDeepfake dataset
-- Train the model for 10 epochs
-- Save the best model based on validation accuracy
-- Generate training curves showing loss and accuracy
+1. Prepare the dataset:
+   - Collect labeled images or extract frames from real and deepfake videos.
+   - Resize all frames to **256x256**.
+   - Split data into training, validation, and test sets.
 
-## Model Architecture
+2. Load and preprocess:
+   - Normalize pixel values to range [0,1].
+   - Use `ImageDataGenerator` or manual data loaders.
 
-The model uses a ResNet50 backbone with the following modifications:
-- Final fully connected layer replaced with a custom head
-- Binary classification output (real vs. fake)
-- Sigmoid activation for probability output
+3. Train the model:
+   ```python
+   model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+   model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=10, batch_size=32)
 
-## Training Details
+#Model Architecture
+              Input (256x256x3)
+              ↓
+              Conv2D(32, 3x3) → ReLU → BatchNorm → MaxPooling(2x2)
+              ↓
+              Conv2D(64, 3x3) → ReLU → BatchNorm → MaxPooling(2x2)
+              ↓
+              Conv2D(128, 3x3) → ReLU → BatchNorm → MaxPooling(2x2)
+              ↓
+              Flatten
+              ↓
+              Dense(128) → ReLU → Dropout(0.1)
+              ↓
+              Dense(64) → ReLU → Dropout(0.1)
+              ↓
+              Dense(1) → Sigmoid
 
-- Batch size: 32
-- Learning rate: 0.001
-- Optimizer: Adam
-- Loss function: Binary Cross Entropy
-- Image size: 224x224
-- Data augmentation: Standard ImageNet normalization
 
-## Output
-
-The training script will generate:
-- `best_model.pth`: The best model weights based on validation accuracy
-- `training_curves.png`: Visualization of training and validation metrics 
 >>>>>>> 121b4dace8f3a3dfac0ddcf8b5d01ab725b33cb4
