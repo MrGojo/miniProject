@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # DeepGuardAI - Deepfake Detection System
 
 A web-based deepfake detection system that uses machine learning to analyze images for signs of manipulation.
@@ -133,4 +133,4 @@ To train the model:
               Dense(1) → Sigmoid
 
 
->>>>>>> 121b4dace8f3a3dfac0ddcf8b5d01ab725b33cb4
+
