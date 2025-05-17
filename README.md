@@ -34,7 +34,6 @@ https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces/data
 ## Setup
 
 1. Install the required dependencies:
->>>>>>> 121b4dace8f3a3dfac0ddcf8b5d01ab725b33cb4
 ```bash
 pip install -r requirements.txt
 ```
@@ -91,7 +90,7 @@ To integrate your deepfake detection model:
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
 =======
-# 🎭 Deepfake Detection using Convolutional Neural Networks (CNN)
+# Deepfake Detection using Convolutional Neural Networks (CNN)
 
 This project uses a CNN-based model to detect deepfake content by analyzing visual artifacts in images or video frames. The model processes RGB images resized to 256x256 and outputs a binary prediction — **real (0)** or **deepfake (1)**.
 
@@ -116,6 +115,7 @@ To train the model:
    model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=10, batch_size=32)
 
 #Model Architecture
+
               Input (256x256x3)
               ↓
               Conv2D(32, 3x3) → ReLU → BatchNorm → MaxPooling(2x2)
