@@ -38,7 +38,6 @@ https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces/data
 pip install -r requirements.txt
 ```
 
-<<<<<<< HEAD
 3. Run migrations:
 ```bash
 python manage.py makemigrations
